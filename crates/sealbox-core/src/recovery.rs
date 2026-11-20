@@ -1309,7 +1309,7 @@ impl Engine {
                 .unwrap_or_default();
             let newest: Vec<u32> = uids.iter().rev().take(DISCOVERY_SCAN).copied().collect();
             let mut msgs = client.fetch_rfc822_batch(&newest).await.unwrap_or_default();
-            msgs.sort_by(|a, b| b.uid.cmp(&a.uid));
+            msgs.sort_by_key(|m| std::cmp::Reverse(m.uid));
             for m in msgs {
                 let Ok(parsed) = mime::parse(&m.raw) else {
                     continue;

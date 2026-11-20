@@ -25,6 +25,8 @@ async fn engine_on(sim: &ProviderSim) -> (tempfile::TempDir, Engine) {
         EngineConfig {
             network_timeout: Duration::from_secs(10),
             sync_window: 50,
+            // A fixed raw key: tests must never touch (or wait on) the developer's OS keyring.
+            profile_key: sealbox_core::ProfileKeySource::Raw(vec![7u8; 32]),
             ..EngineConfig::default()
         },
     )

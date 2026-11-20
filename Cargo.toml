@@ -6,7 +6,7 @@ members = ["crates/*"]
 version = "0.1.0"
 edition = "2021"
 publish = false
-rust-version = "1.85"
+rust-version = "1.89"
 license = "GPL-3.0-or-later"
 repository = "https://github.com/wjbrob/sealbox"
 

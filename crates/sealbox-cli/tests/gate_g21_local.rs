@@ -435,8 +435,8 @@ mod xoauth2_front {
             } as u32)
         };
         let bytes = s.trim().as_bytes();
-        let chunks = bytes.chunks_exact(4);
-        if !chunks.remainder().is_empty() {
+        let (chunks, rest) = bytes.as_chunks::<4>();
+        if !rest.is_empty() {
             return None;
         }
         let mut out = Vec::with_capacity(bytes.len() / 4 * 3);

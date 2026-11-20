@@ -389,7 +389,7 @@ fn clamp_structure(html: &str) -> Cow<'_, str> {
             let lower = rest.to_ascii_lowercase();
             let upto = lower
                 .find(&format!("</{}", name.to_ascii_lowercase()))
-                .map_or(rest.len(), |e| e);
+                .unwrap_or(rest.len());
             out.push_str(&rest[..upto]);
             rest = &rest[upto..];
             continue;

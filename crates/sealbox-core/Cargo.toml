@@ -2,6 +2,7 @@
 name = "sealbox-core"
 version.workspace = true
 edition.workspace = true
+rust-version.workspace = true
 license.workspace = true
 repository.workspace = true
 publish.workspace = true
@@ -11,7 +12,6 @@ description = "Sealbox engine: accounts, local store, sync + send pipelines, API
 sealbox-crypto = { path = "../sealbox-crypto" }
 sealbox-mail = { path = "../sealbox-mail" }
 sealbox-spam = { path = "../sealbox-spam" }
-anyhow.workspace = true
 thiserror.workspace = true
 serde.workspace = true
 serde_json.workspace = true

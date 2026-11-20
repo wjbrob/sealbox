@@ -3962,6 +3962,11 @@ impl Engine {
 
 #[cfg(test)]
 mod tests {
+    /// A test profile keyed with a fixed raw key (the app's own path, `ProfileKeySource::Raw`),
+    /// so unit tests never touch — or depend on — the developer's OS keyring.
+    fn open_test_engine(dir: &tempfile::TempDir) -> Engine {
+        Engine::open_with_key(dir.path().display().to_string(), vec![7u8; 32]).unwrap()
+    }
     use super::*;
 
     /// A bridge engine on a fresh profile that does not depend on the environment: a raw
@@ -4668,7 +4673,7 @@ mod tests {
     #[test]
     fn open_lists_no_accounts_and_round_trips_config_types() {
         let dir = tempfile::tempdir().unwrap();
-        let engine = Engine::open(dir.path().display().to_string()).unwrap();
+        let engine = open_test_engine(&dir);
         assert!(engine.list_accounts().unwrap().is_empty());
         assert!(engine.contacts().unwrap().is_empty());
         assert_eq!(engine.profile_dir(), dir.path().display().to_string());
@@ -4743,7 +4748,7 @@ mod tests {
     #[test]
     fn settings_need_an_account() {
         let dir = tempfile::tempdir().unwrap();
-        let engine = Engine::open(dir.path().display().to_string()).unwrap();
+        let engine = open_test_engine(&dir);
         assert!(engine.get_signature("nobody@sealbox.test".into()).is_err());
         assert!(engine
             .auto_reply_log("nobody@sealbox.test".into(), 10)
@@ -4760,7 +4765,7 @@ mod tests {
     #[test]
     fn errors_keep_the_engine_message() {
         let dir = tempfile::tempdir().unwrap();
-        let engine = Engine::open(dir.path().display().to_string()).unwrap();
+        let engine = open_test_engine(&dir);
         let e = engine
             .my_fingerprint("nobody@sealbox.test".into())
             .unwrap_err();
@@ -4770,7 +4775,7 @@ mod tests {
     #[test]
     fn identity_and_recovery_without_network() {
         let dir = tempfile::tempdir().unwrap();
-        let engine = Engine::open(dir.path().display().to_string()).unwrap();
+        let engine = open_test_engine(&dir);
         let fpr = "0123456789ABCDEF0123456789ABCDEF01234567";
         assert_eq!(
             Engine::parse_fingerprint_qr(format!("openpgp4fpr:{}", fpr.to_lowercase())).unwrap(),

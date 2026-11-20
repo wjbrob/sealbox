@@ -3466,7 +3466,6 @@ dependencies = [
 name = "sealbox-core"
 version = "0.1.0"
 dependencies = [
- "anyhow",
  "argon2",
  "async-imap",
  "base64 0.22.1",
@@ -3505,7 +3504,6 @@ dependencies = [
  "serde_json",
  "smallvec",
  "thiserror 2.0.21",
- "tracing",
  "zeroize",
 ]
 
@@ -3526,7 +3524,6 @@ name = "sealbox-mail"
 version = "0.1.0"
 dependencies = [
  "ammonia",
- "anyhow",
  "async-imap",
  "base64 0.22.1",
  "futures-util",

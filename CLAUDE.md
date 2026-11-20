@@ -25,7 +25,7 @@ Human contributors: see `CONTRIBUTING.md` first.
 | `scripts/gate.sh` | the test gate; writes `.gate/gate_status.json` (local, gitignored) |
 
 ## Toolchain
-Rust stable (MSRV 1.85), Flutter 3.47.8, Docker (for e2e gates), `gpg`, `rnp` and `sq` (interop
+Rust stable (MSRV 1.89), Flutter 3.47.8, Docker (for e2e gates), `gpg`, `rnp` and `sq` (interop
 oracles), Android SDK + NDK 27.0.12077973 + `cargo-ndk` for Android. `scripts/env.sh` puts the
 toolchain on `PATH`; override `FLUTTER_ROOT` / `ANDROID_HOME` as needed.
 

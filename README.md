@@ -53,7 +53,7 @@ or move to a new address.
 
 ## Building
 
-Prerequisites: Rust stable (1.85+), Flutter 3.47.8, and Docker for the end-to-end tests. The
+Prerequisites: Rust stable (1.89+), Flutter 3.47.8, and Docker for the end-to-end tests. The
 interop tests also need `gpg`, `rnp` and `sq`.
 
 ```sh
