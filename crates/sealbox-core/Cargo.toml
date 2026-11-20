@@ -27,7 +27,7 @@ async-imap = { version = "0.12", default-features = false, features = ["runtime-
 chacha20poly1305 = "0.10"
 hkdf = "0.12"
 sha2 = "0.10"
-argon2 = "0.5"
+argon2 = "0.6"
 zeroize = "1.9"
 flate2 = { version = "1", default-features = false, features = ["rust_backend"] } # recovery bundle (G15, recovery.rs)
 # Key-transparency tree heads (G30, identity.rs): Ed25519 verification only.
