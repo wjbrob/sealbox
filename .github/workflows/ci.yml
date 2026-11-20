@@ -104,7 +104,7 @@ jobs:
           mkdir -p dist
           tar -C app/build/linux/x64/release -czf "dist/sealbox-${version}-linux-x64.tar.gz" --transform "s,^bundle,sealbox-${version},S" bundle
           ls -l dist
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: sealbox-linux-x64
           path: dist/*.tar.gz
@@ -166,7 +166,7 @@ jobs:
           apksigner="$(find "$ANDROID_HOME/build-tools" -maxdepth 2 -name apksigner | sort -V | tail -n 1)"
           "$apksigner" verify --print-certs app/build/app/outputs/flutter-apk/app-release.apk
           jarsigner -verify app/build/app/outputs/bundle/release/app-release.aab
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: sealbox-android
           path: |
@@ -205,7 +205,7 @@ jobs:
         run: |
           mkdir -p dist
           ditto -c -k --keepParent app/build/macos/Build/Products/Release/sealbox_app.app "dist/sealbox-$(scripts/version.sh)-macos.zip"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: sealbox-macos
           path: dist/*.zip
@@ -235,7 +235,7 @@ jobs:
         working-directory: app
       - run: flutter build windows --release
         working-directory: app
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: sealbox-windows-x64
           path: app/build/windows/x64/runner/Release
@@ -275,7 +275,7 @@ jobs:
           curl -fsSL -o actionlint.tar.gz https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz
           tar -xzf actionlint.tar.gz actionlint
       - run: scripts/gate_release.sh
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: sealbox-dist
