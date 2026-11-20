@@ -14,6 +14,9 @@ ignore = [
     { id = "RUSTSEC-2023-0071", reason = "no upstream fix; documented residual R13" },
     # crypto-bigint 0.5 timing (via rPGP's NIST-curve code, peers' public data only): R13.
     { id = "RUSTSEC-2026-0387", reason = "needs an rPGP release; documented residual R13" },
+    # ml-dsa 0.0.4 signing timing: only behind the `pqc` feature (off in the product, never signs
+    # with ML-DSA); checked here because CI runs cargo-deny with --all-features. R13.
+    { id = "RUSTSEC-2025-0144", reason = "pqc feature only, off in the product; residual R13" },
     # Unmaintained, no replacement release yet: zbus stack (Linux keyring), pin-utils, chrono.
     { id = "RUSTSEC-2026-0370", reason = "zvariant via the Linux keyring; no safe upgrade" },
     { id = "RUSTSEC-2026-0371", reason = "zbus_names via the Linux keyring; no safe upgrade" },
