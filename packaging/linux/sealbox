@@ -1,0 +1,15 @@
+#!/bin/sh
+# Sealbox launcher: runs the Flutter bundle next to this script (works from the tar.gz
+# unpack directory, from /opt/sealbox, or through a symlink in ~/.local/bin).
+set -e
+self="$0"
+while [ -L "$self" ]; do
+  dir="$(cd "$(dirname "$self")" && pwd)"
+  self="$(readlink "$self")"
+  case "$self" in /*) ;; *) self="$dir/$self" ;; esac
+done
+here="$(cd "$(dirname "$self")" && pwd)"
+bundle="$here/bundle"
+[ -x "$bundle/sealbox_app" ] || { echo "sealbox: bundle not found at $bundle" >&2; exit 1; }
+# The engine's tracing goes to stderr; SEALBOX_LOG=debug for more. SEALBOX_PROFILE picks the profile dir.
+exec "$bundle/sealbox_app" "$@"

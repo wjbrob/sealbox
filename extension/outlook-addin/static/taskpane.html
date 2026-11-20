@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sealbox</title>
+<!-- Office.js must be loaded from Microsoft's CDN (AppSource policy). -->
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+<link rel="stylesheet" href="taskpane.css">
+</head>
+<body>
+<h1>Sealbox</h1>
+<section id="setup" hidden>
+  <p>Create or import your OpenPGP key. It is stored only in this browser profile, wrapped with your passphrase (Argon2id + XChaCha20-Poly1305).</p>
+  <label for="name">Name</label><input id="name">
+  <label for="email">Email</label><input id="email" type="email">
+  <label for="import">…or armored secret key</label><textarea id="import" class="mono"></textarea>
+  <label for="import-pass">Its passphrase (if any)</label><input id="import-pass" type="password">
+  <label for="new-pass">Sealbox passphrase</label><input id="new-pass" type="password">
+  <button id="create">Create key</button> <button id="do-import" class="secondary">Import</button>
+</section>
+<section id="locked" hidden>
+  <label for="pass">Passphrase</label><input id="pass" type="password"><button id="unlock">Unlock</button>
+</section>
+<section id="compose" hidden>
+  <p class="meta">Encrypts the current body to all To/Cc recipients (and you) and signs it. The body is replaced by the OpenPGP message (inline PGP: Office.js cannot build a multipart/encrypted MIME tree).</p>
+  <div id="rcpt-keys" class="meta"></div>
+  <button id="encrypt">Encrypt &amp; sign body</button>
+</section>
+<section id="read" hidden>
+  <button id="decrypt">Decrypt this message</button>
+  <h2 id="subject"></h2>
+  <div id="sig" class="meta"></div>
+  <div id="body" class="body"></div>
+</section>
+<section id="keys" hidden>
+  <h2>Contacts' keys</h2>
+  <textarea id="contact-key" class="mono" placeholder="-----BEGIN PGP PUBLIC KEY BLOCK-----"></textarea>
+  <button id="add-contact" class="secondary">Add key</button>
+  <details><summary>My public key</summary><textarea id="my-public" class="mono" readonly></textarea></details>
+</section>
+<div id="status" class="status" hidden></div>
+<script type="module" src="taskpane.js"></script>
+</body>
+</html>

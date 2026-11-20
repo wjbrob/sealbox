@@ -1,0 +1,7 @@
+Content-Type: multipart/encrypted; protocol="application/pkcs7-mime"; boundary=x
+
+--x
+Content-Type: application/pkcs7-mime
+
+MIAGCSqGSIb3DQEHA6CAMIACAQAx
+--x--

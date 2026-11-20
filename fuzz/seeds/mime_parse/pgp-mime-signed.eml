@@ -1,0 +1,47 @@
+From: "Sealbox Fuzz Peer" <fuzz-peer@sealbox.test>
+To: "Sealbox Fuzz Identity" <fuzz-identity@sealbox.test>
+Subject: Signed
+Date: Wed, 29 Oct 2025 00:00:00 +0000
+Message-ID: <signed@sealbox.test>
+Autocrypt: addr=fuzz-peer@sealbox.test; prefer-encrypt=mutual;
+ keydata=xjMEauK9EhYJKwYBBAHaRw8BAQdA2KHEJPvSaw6WqvfIeuavwHlxKtqJsIl8JhVsso0g
+ lNTNKlNlYWxib3ggRnV6eiBQZWVyIDxmdXp6LXBlZXJAc2VhbGJveC50ZXN0PsKQBBMWCAA4BQJq
+ 4r0SFiEEq1rDqHWWaz3CYi3J5CwpEWbB3C0CGwMCHgEECwkIBwUVCAoJCwQWAgEAAScCGQEACgkQ
+ 5CwpEWbB3C20mgEAjiQFHU1B4HqtxAILHX6wrtvVR9O4WntzLT4D+YMmprgA/0BktGmvOv6V8SdR
+ 9V88kyLCM76S6akSXzn1WzlRa00KzjgEauK9EhIKKwYBBAGXVQEFAQEHQOm5B6vhES+DSCavISfE
+ vnJLrcrgS/aCu1MUDvDQ0cMiAwEIB8J4BBgWCAAgBQJq4r0SAhsMFiEEq1rDqHWWaz3CYi3J5Cwp
+ EWbB3C0ACgkQ5CwpEWbB3C2pawD/eH7AZ3mpqR9YE3t86tSxoniOo45/0uXteKpuVELF3GYBAPHl
+ dzNBfFwsVAWkI2qJVF+X+PsqR5n1Tsk3XHw3qQAH
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg="pgp-sha256";
+ protocol="application/pgp-signature";
+ boundary="18e2e3ba173d6167_bf67411f286d5fbf_ccda92203a7d31af"
+
+
+--18e2e3ba173d6167_bf67411f286d5fbf_ccda92203a7d31af
+From: "Sealbox Fuzz Peer" <fuzz-peer@sealbox.test>
+To: "Sealbox Fuzz Identity" <fuzz-identity@sealbox.test>
+Subject: Signed
+Date: Wed, 29 Oct 2025 00:00:00 +0000
+Message-ID: <signed@sealbox.test>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+Content-Transfer-Encoding: 7bit
+
+signed body
+
+--18e2e3ba173d6167_bf67411f286d5fbf_ccda92203a7d31af
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+wnUEABYIAB0WIQSrWsOodZZrPcJiLcnkLCkRZsHcLQUCauLDJgAKCRDkLCkRZsHc
+LbvoAP0SEoNNi3wpTszv69CFSJJbAXgXbk1pxvh5lUvBf/LBGAEA9uZav9w4j1jd
+xeyUzYECmqN/zIQ1AnTUDYHBnshdJQM=
+=BJ6z
+-----END PGP SIGNATURE-----
+
+--18e2e3ba173d6167_bf67411f286d5fbf_ccda92203a7d31af--

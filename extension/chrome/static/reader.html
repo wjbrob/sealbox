@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Sealbox message</title><link rel="stylesheet" href="pages.css"></head>
+<body>
+<div id="locked" hidden>
+  <p>Your Sealbox key is locked.</p>
+  <label for="pass">Passphrase</label><input id="pass" type="password" autocomplete="current-password">
+  <button id="unlock">Unlock &amp; decrypt</button>
+</div>
+<div id="list" hidden><h1>Encrypted messages</h1><div id="items"></div></div>
+<article id="msg" hidden>
+  <h1 id="subject"></h1>
+  <div class="meta">From <span id="from"></span> · <span id="date"></span></div>
+  <div id="sig" class="meta"></div>
+  <div id="body" class="body"></div>
+  <iframe id="html" sandbox="" title="HTML part (scripts disabled)" hidden></iframe>
+  <div id="attachments"></div>
+</article>
+<div id="status" class="status" hidden></div>
+<script type="module" src="reader.js"></script>
+</body>
+</html>

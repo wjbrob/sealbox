@@ -1,0 +1,18 @@
+From: a@sealbox.test
+To: b@sealbox.test
+Subject: lf
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512; boundary=lfb
+
+--lfb
+Content-Type: text/plain
+
+lf only body
+--lfb
+Content-Type: application/pgp-signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQ==
+-----END PGP SIGNATURE-----
+--lfb--

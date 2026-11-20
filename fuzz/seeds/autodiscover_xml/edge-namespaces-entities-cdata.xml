@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- comment -->
+<cc:clientConfig xmlns:cc="urn:x" version="1.1"><cc:emailProvider id="e"><cc:displayName>A &amp; B &#x263A; &lt;mail&gt;</cc:displayName><cc:incomingServer type="IMAP"><cc:hostname><![CDATA[imap.example.com]]></cc:hostname><cc:port> 993 </cc:port><cc:socketType>ssl</cc:socketType><cc:authentication>OAuth2</cc:authentication></cc:incomingServer><cc:outgoingServer type="smtp"><cc:hostname>smtp.example.com</cc:hostname><cc:port>465</cc:port><cc:socketType>TLS</cc:socketType></cc:outgoingServer></cc:emailProvider><cc:enable visiturl="https://example.com/app-passwords?a=1&amp;b=2"/><?pi data?></cc:clientConfig>

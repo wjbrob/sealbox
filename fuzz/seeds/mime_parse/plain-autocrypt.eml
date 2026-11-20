@@ -1,0 +1,19 @@
+From: "Sealbox Fuzz Peer" <fuzz-peer@sealbox.test>
+To: "Sealbox Fuzz Identity" <fuzz-identity@sealbox.test>
+Subject: =?utf-8?B?R3LDvMOfZSDigJQgcGxhaW4g4pyT?=
+Date: Wed, 29 Oct 2025 00:00:00 +0000
+Message-ID: <plain@sealbox.test>
+Autocrypt: addr=fuzz-peer@sealbox.test; prefer-encrypt=mutual;
+ keydata=xjMEauK9EhYJKwYBBAHaRw8BAQdA2KHEJPvSaw6WqvfIeuavwHlxKtqJsIl8JhVsso0g
+ lNTNKlNlYWxib3ggRnV6eiBQZWVyIDxmdXp6LXBlZXJAc2VhbGJveC50ZXN0PsKQBBMWCAA4BQJq
+ 4r0SFiEEq1rDqHWWaz3CYi3J5CwpEWbB3C0CGwMCHgEECwkIBwUVCAoJCwQWAgEAAScCGQEACgkQ
+ 5CwpEWbB3C20mgEAjiQFHU1B4HqtxAILHX6wrtvVR9O4WntzLT4D+YMmprgA/0BktGmvOv6V8SdR
+ 9V88kyLCM76S6akSXzn1WzlRa00KzjgEauK9EhIKKwYBBAGXVQEFAQEHQOm5B6vhES+DSCavISfE
+ vnJLrcrgS/aCu1MUDvDQ0cMiAwEIB8J4BBgWCAAgBQJq4r0SAhsMFiEEq1rDqHWWaz3CYi3J5Cwp
+ EWbB3C0ACgkQ5CwpEWbB3C2pawD/eH7AZ3mpqR9YE3t86tSxoniOo45/0uXteKpuVELF3GYBAPHl
+ dzNBfFwsVAWkI2qJVF+X+PsqR5n1Tsk3XHw3qQAH
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Hello from the fuzz peer.

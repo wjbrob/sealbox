@@ -1,0 +1,19 @@
+[package]
+name = "sealbox-fakeprov"
+version.workspace = true
+edition.workspace = true
+license = "AGPL-3.0-or-later"
+repository.workspace = true
+publish = false
+rust-version.workspace = true
+description = "Loopback IMAP/SMTP/OAuth2 simulators that imitate one named mail provider's quirks, so the provider conformance suite can run without a real account"
+
+[dependencies]
+tokio = { workspace = true }
+sealbox-core = { path = "../sealbox-core" }
+sealbox-mail = { path = "../sealbox-mail" }
+base64 = "0.22"
+
+[dev-dependencies]
+sealbox-crypto = { path = "../sealbox-crypto" }
+tempfile = "3"

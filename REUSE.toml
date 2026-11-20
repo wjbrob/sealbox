@@ -1,0 +1,50 @@
+# REUSE compliance (https://reuse.software/spec-3.3/): licence and copyright for every file,
+# declared here by path instead of a header in each file. Check with `reuse lint`.
+version = 1
+SPDX-PackageName = "Sealbox"
+SPDX-PackageDownloadLocation = "https://github.com/wjbrob/sealbox"
+
+# Default: everything is GPL-3.0-or-later ...
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 The Sealbox contributors"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# ... except the network services and the provider simulator, which are AGPL-3.0-or-later.
+[[annotations]]
+path = ["crates/sealbox-server/**", "crates/sealbox-relay/**", "crates/sealbox-fakeprov/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 The Sealbox contributors"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+# Third-party components keep their own licences.
+[[annotations]]
+path = "web/guest/vendor/**"
+precedence = "override"
+SPDX-FileCopyrightText = "OpenPGP.js contributors"
+SPDX-License-Identifier = "LGPL-3.0-or-later"
+
+[[annotations]]
+path = "extension/wasm/vendor/mail-builder/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Stalwart Labs Ltd."
+SPDX-License-Identifier = "Apache-2.0 OR MIT"
+
+[[annotations]]
+path = "app/rust_builder/cargokit/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Matej Knopp"
+SPDX-License-Identifier = "MIT OR Apache-2.0"
+
+[[annotations]]
+path = ["app/test/support/fonts/Roboto*", "app/test/support/fonts/roboto*"]
+precedence = "override"
+SPDX-FileCopyrightText = "Google LLC"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["app/test/support/fonts/DejaVu*", "app/test/support/fonts/dejavu*"]
+precedence = "override"
+SPDX-FileCopyrightText = "Bitstream, Inc.; DejaVu fonts team"
+SPDX-License-Identifier = "LicenseRef-DejaVu"

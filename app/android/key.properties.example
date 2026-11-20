@@ -1,0 +1,11 @@
+# Release signing for `flutter build apk|appbundle --release` (docs/RELEASE.md).
+#
+# Copy to android/key.properties (git-ignored) to sign with the committed TEST keystore —
+# NOT FOR PRODUCTION, the passwords are public (testing/keys/README.md). For a real upload
+# key keep the file outside the repository and point $SEALBOX_KEY_PROPERTIES at it instead;
+# the environment variable wins over android/key.properties.
+# Relative storeFile paths resolve against android/app; absolute paths are safest.
+storeFile=../../../testing/keys/sealbox-test.jks
+storePassword=sealbox-test
+keyAlias=sealbox-test
+keyPassword=sealbox-test

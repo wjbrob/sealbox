@@ -1,0 +1,37 @@
+[package]
+name = "sealbox-crypto"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+description = "OpenPGP (rPGP), Autocrypt Level 1 and guest-envelope primitives for Sealbox"
+
+[features]
+default = []
+# Post-quantum hybrid algorithms (ML-KEM-768+X25519, ML-DSA, SLH-DSA) as shipped by rPGP.
+# Off by default: not yet interoperable with gpg/Thunderbird. Gate G14 will turn this on.
+pqc = ["pgp/pqc"]
+# Browser / wasm32-unknown-unknown builds (the extension, gate G28): rPGP's `wasm` feature
+# (getrandom 0.2 `js` backend + web-time clocks) and the same `js` backend for rand 0.8's
+# getrandom. Purely additive; native builds never enable it.
+js = ["pgp/wasm", "dep:getrandom", "getrandom/js"]
+
+[dependencies]
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+pgp = "0.21.0"
+zeroize = { version = "1.9.1", features = ["derive"] }
+base64 = "0.23.1"
+rand = "0.8"
+getrandom = { version = "0.2", optional = true }
+chrono = { version = "0.4.45", features = ["serde"] }
+smallvec = "1.16.4"
+
+# Gate G14 (PQC hybrid round-trip) only exists when the `pqc` feature is on; `cargo test
+# --workspace` without the feature (gate G0) skips it instead of failing to compile.
+[[test]]
+name = "gate_g14"
+required-features = ["pqc"]

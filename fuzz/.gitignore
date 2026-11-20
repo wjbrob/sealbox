@@ -1,0 +1,5 @@
+# libFuzzer working state and build output (gate G13); the seed corpora under seeds/ are committed.
+target/
+corpus/
+artifacts/
+coverage/

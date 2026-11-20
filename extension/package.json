@@ -1,0 +1,20 @@
+{
+  "name": "sealbox-extension",
+  "private": true,
+  "license": "GPL-3.0-or-later",
+  "version": "0.1.0",
+  "description": "Sealbox browser extension (Gmail via the Gmail REST API) and Outlook Office.js add-in",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "lint": "web-ext lint --source-dir dist/firefox --self-hosted --warnings-as-errors",
+    "validate:outlook": "office-addin-manifest validate outlook-addin/manifest.xml",
+    "test:e2e": "node test/fixture/e2e.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "office-addin-manifest": "3.0.1",
+    "puppeteer-core": "25.12.0",
+    "web-ext": "10.7.0"
+  }
+}

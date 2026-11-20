@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Sealbox compose</title><link rel="stylesheet" href="pages.css"></head>
+<body>
+<h1>New encrypted message</h1>
+<div id="locked" hidden>
+  <p>Your Sealbox key is locked.</p>
+  <label for="pass">Passphrase</label><input id="pass" type="password" autocomplete="current-password">
+  <button id="unlock">Unlock</button>
+</div>
+<form id="form" hidden>
+  <div class="meta">From <span id="from"></span></div>
+  <label for="to">To</label><input id="to" autocomplete="off" placeholder="name@example.org, other@example.org">
+  <label for="cc">Cc</label><input id="cc" autocomplete="off">
+  <label for="subject">Subject (encrypted — recipients' servers see “...”)</label><input id="subject" autocomplete="off">
+  <label for="body">Message</label><textarea id="body"></textarea>
+  <label for="files">Attachments (encrypted)</label><input id="files" type="file" multiple>
+  <div id="keys" class="meta"></div>
+  <button id="send" type="submit">Encrypt &amp; send</button>
+</form>
+<div id="status" class="status" hidden></div>
+<script type="module" src="compose.js"></script>
+</body>
+</html>

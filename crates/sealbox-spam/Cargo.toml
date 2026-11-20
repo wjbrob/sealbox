@@ -1,0 +1,21 @@
+[package]
+name = "sealbox-spam"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+description = "Sealbox spam classifier (explainable rules + per-user naive Bayes + feedback + optional DNSBL) and the filter-rule engine"
+
+[dependencies]
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+tokio = { workspace = true }
+mail-parser = "0.11"
+regex = "1"
+hickory-resolver = "0.26"
+
+[dev-dependencies]
+tempfile = "3.27.0"

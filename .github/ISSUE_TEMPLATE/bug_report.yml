@@ -1,0 +1,39 @@
+name: Bug report
+description: Something does not work as it should.
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Security problem?** Do not file it here — see SECURITY.md.
+        Please remove email addresses, keys and message contents from anything you paste.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [Android app, Linux app, CLI, Browser extension, Guest viewer, Server, Push relay, Other]
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+    validations: { required: true }
+  - type: input
+    id: provider
+    attributes:
+      label: Mail provider (Gmail, Outlook, iCloud, Fastmail, self-hosted …)
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations: { required: true }
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (redacted)
+      render: text

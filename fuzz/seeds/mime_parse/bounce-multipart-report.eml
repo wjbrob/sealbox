@@ -1,0 +1,25 @@
+From: MAILER-DAEMON@sealbox.test
+To: a@sealbox.test
+Subject: Undelivered
+Autocrypt: addr=MAILER-DAEMON@sealbox.test; keydata=AAAA
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status; boundary="r"
+
+--r
+Content-Type: text/plain
+
+Delivery failed.
+--r
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mx.sealbox.test
+
+Final-Recipient: rfc822; x@sealbox.test
+Action: failed
+Status: 5.1.1
+--r
+Content-Type: text/rfc822-headers
+
+From: a@sealbox.test
+Subject: original
+--r--

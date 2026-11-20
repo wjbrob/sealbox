@@ -1,0 +1,11 @@
+Fonts used ONLY by the test suite (app/test/support/fonts.dart) so goldens and
+contrast checks render real glyphs instead of the test harness's Ahem boxes.
+They are not bundled into the app.
+
+Roboto-Regular.ttf, Roboto-Medium.ttf, Roboto-Bold.ttf
+  Copied from the Flutter SDK (bin/cache/artifacts/material_fonts/).
+  Apache License 2.0 — see Roboto_LICENSE.txt.
+
+DejaVuSansMono.ttf   (registered under the family name "monospace")
+  Copied from Debian package fonts-dejavu-core (/usr/share/fonts/truetype/dejavu/).
+  Bitstream Vera / DejaVu licence — see DejaVu_LICENSE.txt.

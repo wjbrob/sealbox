@@ -1,0 +1,33 @@
+[package]
+name = "sealbox-relay"
+version.workspace = true
+edition.workspace = true
+license = "AGPL-3.0-or-later"
+repository.workspace = true
+publish.workspace = true
+description = "Sealbox push relay: holds one IMAP IDLE session per registered mailbox and sends content-free pushes (G16)"
+
+[lib]
+name = "sealbox_relay"
+path = "src/lib.rs"
+
+[[bin]]
+name = "sealbox-relay"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+sealbox-mail = { path = "../sealbox-mail" }
+# Same versions as sealbox-server so the workspace shares one build of each.
+axum = "0.8"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+clap = { version = "4", features = ["derive", "env"] }
+rand = "0.8"
+base64 = "0.22"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }

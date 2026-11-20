@@ -1,0 +1,22 @@
+From: "Sealbox Fuzz Peer" <fuzz-peer@sealbox.test>
+To: "Sealbox Fuzz Identity" <fuzz-identity@sealbox.test>
+Subject: clearsigned
+Date: Wed, 29 Oct 2025 00:00:00 +0000
+Message-ID: <clearsigned@sealbox.test>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+clear-signed text
+second line
+
+-----BEGIN PGP SIGNATURE-----
+
+wnUEARYIAB0FAmriwyYWIQSrWsOodZZrPcJiLcnkLCkRZsHcLQAKCRDkLCkRZsHc
+LRVHAP0eNBbcPCIfJXpQAd+0PvqiSbz81hRVDwMu3qNtzns+3QEAxVDNHIjBrgtw
+NR2Tv+BJhuPfW3RGpjTy6BTPbZr2/go=
+=38Wy
+-----END PGP SIGNATURE-----

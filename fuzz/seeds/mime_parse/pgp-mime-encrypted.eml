@@ -1,0 +1,78 @@
+From: "Sealbox Fuzz Peer" <fuzz-peer@sealbox.test>
+To: "Sealbox Fuzz Identity" <fuzz-identity@sealbox.test>
+Cc: "Carol" <carol@sealbox.test>
+Subject: ...
+Date: Wed, 29 Oct 2025 00:00:00 +0000
+Message-ID: <encrypted@sealbox.test>
+Autocrypt: addr=fuzz-peer@sealbox.test; prefer-encrypt=mutual;
+ keydata=xjMEauK9EhYJKwYBBAHaRw8BAQdA2KHEJPvSaw6WqvfIeuavwHlxKtqJsIl8JhVsso0g
+ lNTNKlNlYWxib3ggRnV6eiBQZWVyIDxmdXp6LXBlZXJAc2VhbGJveC50ZXN0PsKQBBMWCAA4BQJq
+ 4r0SFiEEq1rDqHWWaz3CYi3J5CwpEWbB3C0CGwMCHgEECwkIBwUVCAoJCwQWAgEAAScCGQEACgkQ
+ 5CwpEWbB3C20mgEAjiQFHU1B4HqtxAILHX6wrtvVR9O4WntzLT4D+YMmprgA/0BktGmvOv6V8SdR
+ 9V88kyLCM76S6akSXzn1WzlRa00KzjgEauK9EhIKKwYBBAGXVQEFAQEHQOm5B6vhES+DSCavISfE
+ vnJLrcrgS/aCu1MUDvDQ0cMiAwEIB8J4BBgWCAAgBQJq4r0SAhsMFiEEq1rDqHWWaz3CYi3J5Cwp
+ EWbB3C0ACgkQ5CwpEWbB3C2pawD/eH7AZ3mpqR9YE3t86tSxoniOo45/0uXteKpuVELF3GYBAPHl
+ dzNBfFwsVAWkI2qJVF+X+PsqR5n1Tsk3XHw3qQAH
+MIME-Version: 1.0
+Content-Type: multipart/encrypted; protocol="application/pgp-encrypted";
+ boundary="18e2e3ba17385dc6_a4c929d18ceee40c_ccda92203a7d31af"
+
+
+--18e2e3ba17385dc6_a4c929d18ceee40c_ccda92203a7d31af
+Content-Type: application/pgp-encrypted; charset="utf-8"
+Content-Description: PGP/MIME version identification
+Content-Transfer-Encoding: 7bit
+
+Version: 1
+
+--18e2e3ba17385dc6_a4c929d18ceee40c_ccda92203a7d31af
+Content-Type: application/octet-stream; name="encrypted.asc"
+Content-Description: OpenPGP encrypted message
+Content-Disposition: inline; filename="encrypted.asc"
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP MESSAGE-----
+
+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
+4sf5cj7S5/VGW9WpZs8GujIcbsf6
+=k8qJ
+-----END PGP MESSAGE-----
+
+--18e2e3ba17385dc6_a4c929d18ceee40c_ccda92203a7d31af--

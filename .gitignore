@@ -1,0 +1,30 @@
+/target
+**/*.rs.bk
+# Local gate state: status, logs, real-provider config (tokens/app passwords), profiles, evidence
+/.gate/
+*.secret
+*.pem
+*.key
+!testing/**/*.pem
+app/build/
+app/.dart_tool/
+app/.flutter-plugins*
+app/**/generated/
+app/android/.gradle/
+app/android/local.properties
+app/ios/Pods/
+node_modules/
+testing/.state/
+*.sqlite
+*.sqlite-journal
+*.db
+# packaging output; review-loop captures are local only
+/dist/
+/review/
+# editor lock/temp files
+docs/.~*
+
+# Python bytecode from testing/ helpers
+__pycache__/
+
+apk-backup/

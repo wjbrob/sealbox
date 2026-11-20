@@ -1,0 +1,35 @@
+# Allow-list for the log-redaction audit in scripts/gate_release.sh (docs/RELEASE.md §5).
+# One entry per line:  <path prefix>::<regex matched against the whole logging statement>
+# Add a comment above each entry saying WHY the statement is safe. Prefer fixing the log line.
+#
+# Example (not active):
+# crates/sealbox-core/src/sync.rs::body_len
+
+# `sealbox guest-link` prints the freshly generated guest passphrase to the USER's own terminal —
+# that is the product (the user must hand it to the recipient out of band). It is stdout of an
+# interactive CLI command, not a log, and nothing else sees it.
+crates/sealbox-cli/src/main.rs::passphrase: \{\} \(share this out of band
+
+# `sealbox hosted create --show-password` prints the password of the mailbox it has JUST provisioned
+# for the user, only when the user passes --show-password, to the user's own terminal (interactive
+# CLI stdout, not a log). Owner: hosted-mailbox workstream (G22).
+crates/sealbox-cli/src/cmd_hosted.rs::println!\("password: \{password\}"\)
+
+# `sealbox spam …` reports the Bayesian classifier's vocabulary size (`model_tokens`, `f.tokens` =
+# number of learned word tokens). These are integers about the spam model, not credentials.
+# Owner: spam workstream (G25).
+crates/sealbox-cli/src/cmd_spam.rs::\btokens\b
+
+# `sealbox recovery backup` prints a status line that names the `include_credentials` option
+# (a boolean flag), never a credential value. Owner: recovery workstream (G15).
+crates/sealbox-cli/src/cmd_recovery.rs::include_credentials
+
+# `sealbox send --guest-mode passphrase` prints the freshly generated guest passphrase to the
+# SENDER's own terminal so they can hand it over out of band — the product, not a log (same case
+# as the main.rs entry above). Owner: guest-link workstream (G29).
+crates/sealbox-cli/src/cmd_guest.rs::passphrase: \{\}  \(share this another way
+
+# `sealbox draft show <id>` prints the user's OWN saved draft (subject, recipients, body) to the
+# user's own terminal — that is the command's purpose, exactly like `sealbox read` printing a
+# message body. Interactive CLI stdout, not a log; nothing else sees it. Owner: drafts (G32).
+crates/sealbox-cli/src/cmd_draft.rs::println!\("\{\}", d\.body_text\)

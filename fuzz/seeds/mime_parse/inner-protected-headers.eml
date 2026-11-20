@@ -1,0 +1,34 @@
+From: "Sealbox Fuzz Peer" <fuzz-peer@sealbox.test>
+To: "Sealbox Fuzz Identity" <fuzz-identity@sealbox.test>
+Cc: "Carol" <carol@sealbox.test>
+Subject: Protected subject
+Date: Wed, 29 Oct 2025 00:00:00 +0000
+Message-ID: <encrypted@sealbox.test>
+Autocrypt-Gossip: addr=fuzz-identity@sealbox.test;
+ keydata=xjMEauK9EhYJKwYBBAHaRw8BAQdARxXwomHkulzlTJGYKHXftfA96TxxpPK62g+X2saR
+ fqfNMlNlYWxib3ggRnV6eiBJZGVudGl0eSA8ZnV6ei1pZGVudGl0eUBzZWFsYm94LnRlc3Q+wpAE
+ ExYIADgFAmrivRIWIQSeomUKUBrdyFUUhcmmfNAiBF+7IgIbAwIeAQQLCQgHBRUICgkLBBYCAQAB
+ JwIZAQAKCRCmfNAiBF+7IiIfAP9BpvYyUfBK9naH1b5FgtCSiDAoyPCWfjXfKzoJIWNnYgD/a6cg
+ CzPV5gTZKuXSJzRmQgQBSO/VtJb/awSrXptm+wHOOARq4r0SEgorBgEEAZdVAQUBAQdAP1cVIkWA
+ 1m/IC5V2xisgS3BHTe+TqNQOsZ3icvEHrH4DAQgHwngEGBYIACAFAmrivRICGwwWIQSeomUKUBrd
+ yFUUhcmmfNAiBF+7IgAKCRCmfNAiBF+7Im1FAQCyHSkIxXvHJ1NYVywRLchHC8WwH285o+Hixv/j
+ 3+FcjwEAhyfrjNNqpgef3cReC97X8iE6U4eA3zu4RYRMftMeSQg=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; protected-headers="v1";
+ boundary="18e2e3ba172eeb52_d757585bdf2e3baa_ccda92203a7d31af"
+
+
+--18e2e3ba172eeb52_d757585bdf2e3baa_ccda92203a7d31af
+Content-Type: text/rfc822-headers; protected-headers="v1"
+Content-Disposition: inline
+Content-Transfer-Encoding: 7bit
+
+Subject: Protected subject
+
+--18e2e3ba172eeb52_d757585bdf2e3baa_ccda92203a7d31af
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+the secret body
+
+--18e2e3ba172eeb52_d757585bdf2e3baa_ccda92203a7d31af--

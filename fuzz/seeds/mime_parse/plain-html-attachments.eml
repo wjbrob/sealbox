@@ -1,0 +1,47 @@
+From: "Sealbox Fuzz Peer" <fuzz-peer@sealbox.test>
+To: "Sealbox Fuzz Identity" <fuzz-identity@sealbox.test>
+Cc: "Carol" <carol@sealbox.test>
+Subject: Re: files
+Date: Wed, 29 Oct 2025 00:00:00 +0000
+Message-ID: <attachments@sealbox.test>
+In-Reply-To: <parent@sealbox.test>
+References: <root@sealbox.test> <parent@sealbox.test>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="18e2e3ba172b19d5_d12f4cf8cfd9b25f_ccda92203a7d31af"
+
+
+--18e2e3ba172b19d5_d12f4cf8cfd9b25f_ccda92203a7d31af
+Content-Type: multipart/alternative;
+ boundary="18e2e3ba172b2490_644eed79178f562e_ccda92203a7d31af"
+
+
+--18e2e3ba172b2490_644eed79178f562e_ccda92203a7d31af
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+see attached
+
+--18e2e3ba172b2490_644eed79178f562e_ccda92203a7d31af
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<p>see <b>attached</b> <img src="cid:logo@seed"></p>
+--18e2e3ba172b2490_644eed79178f562e_ccda92203a7d31af--
+
+--18e2e3ba172b19d5_d12f4cf8cfd9b25f_ccda92203a7d31af
+Content-Type: application/pdf; name="report.pdf"
+Content-Disposition: attachment; filename="report.pdf"
+Content-Transfer-Encoding: base64
+
+JVBERi0xLjQKJeLjz9MKMSAwIG9iajw8Pj5lbmRvYmoKdHJhaWxlcjw8Pj4KJSVFT0YK
+
+--18e2e3ba172b19d5_d12f4cf8cfd9b25f_ccda92203a7d31af
+Content-Type: image/png; name="logo.png"
+Content-Disposition: inline; filename="logo.png"
+Content-ID: <logo@seed>
+Content-Transfer-Encoding: base64
+
+iVBORw0KGgoAAAANSUhEUg==
+
+--18e2e3ba172b19d5_d12f4cf8cfd9b25f_ccda92203a7d31af--

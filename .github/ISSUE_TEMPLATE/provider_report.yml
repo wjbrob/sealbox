@@ -1,0 +1,21 @@
+name: Provider compatibility report
+description: Sealbox with a specific mail provider — works, half-works or fails.
+labels: ["provider", "triage"]
+body:
+  - type: input
+    id: provider
+    attributes:
+      label: Provider and IMAP/SMTP host
+    validations: { required: true }
+  - type: dropdown
+    id: auth
+    attributes:
+      label: Sign-in method
+      options: [OAuth2, App password, Account password, Bridge (Proton), Other]
+    validations: { required: true }
+  - type: textarea
+    id: result
+    attributes:
+      label: Result (output of `sealbox provider-test`, redacted, is ideal)
+      render: text
+    validations: { required: true }

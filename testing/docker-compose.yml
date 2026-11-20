@@ -1,0 +1,91 @@
+# Local mail server for e2e tests. Project name is forced to "sealbox" by scripts.
+# GreenMail: SMTP 3025, SMTPS 3465, IMAP 3143, IMAPS 3993, API 8080 (all on 127.0.0.1).
+# Users: alice/bob/carol plus u01..u82 (password = <login>pw, address <login>@sealbox.test).
+# Workstreams use disjoint users so parallel e2e runs never share a mailbox (see docs/GATES.md).
+services:
+  mail:
+    image: greenmail/standalone:2.1.3
+    container_name: sealbox-mail
+    environment:
+      GREENMAIL_OPTS: >-
+        -Dgreenmail.setup.test.all
+        -Dgreenmail.hostname=0.0.0.0
+        -Dgreenmail.verbose
+        -Dgreenmail.users=alice:alicepw@sealbox.test,bob:bobpw@sealbox.test,carol:carolpw@sealbox.test,u01:u01pw@sealbox.test,u02:u02pw@sealbox.test,u03:u03pw@sealbox.test,u04:u04pw@sealbox.test,u05:u05pw@sealbox.test,u06:u06pw@sealbox.test,u07:u07pw@sealbox.test,u08:u08pw@sealbox.test,u09:u09pw@sealbox.test,u10:u10pw@sealbox.test,u11:u11pw@sealbox.test,u12:u12pw@sealbox.test,u13:u13pw@sealbox.test,u14:u14pw@sealbox.test,u15:u15pw@sealbox.test,u16:u16pw@sealbox.test,u17:u17pw@sealbox.test,u18:u18pw@sealbox.test,u19:u19pw@sealbox.test,u20:u20pw@sealbox.test,u21:u21pw@sealbox.test,u22:u22pw@sealbox.test,u23:u23pw@sealbox.test,u24:u24pw@sealbox.test,u25:u25pw@sealbox.test,u26:u26pw@sealbox.test,u27:u27pw@sealbox.test,u28:u28pw@sealbox.test,u29:u29pw@sealbox.test,u30:u30pw@sealbox.test,u31:u31pw@sealbox.test,u32:u32pw@sealbox.test,u33:u33pw@sealbox.test,u34:u34pw@sealbox.test,u35:u35pw@sealbox.test,u36:u36pw@sealbox.test,u37:u37pw@sealbox.test,u38:u38pw@sealbox.test,u39:u39pw@sealbox.test,u40:u40pw@sealbox.test,u41:u41pw@sealbox.test,u42:u42pw@sealbox.test,u43:u43pw@sealbox.test,u44:u44pw@sealbox.test,u45:u45pw@sealbox.test,u46:u46pw@sealbox.test,u47:u47pw@sealbox.test,u48:u48pw@sealbox.test,u49:u49pw@sealbox.test,u50:u50pw@sealbox.test,u51:u51pw@sealbox.test,u52:u52pw@sealbox.test,u53:u53pw@sealbox.test,u54:u54pw@sealbox.test,u55:u55pw@sealbox.test,u56:u56pw@sealbox.test,u57:u57pw@sealbox.test,u58:u58pw@sealbox.test,u59:u59pw@sealbox.test,u60:u60pw@sealbox.test,u61:u61pw@sealbox.test,u62:u62pw@sealbox.test,u63:u63pw@sealbox.test,u64:u64pw@sealbox.test,u65:u65pw@sealbox.test,u66:u66pw@sealbox.test,u67:u67pw@sealbox.test,u68:u68pw@sealbox.test,u69:u69pw@sealbox.test,u70:u70pw@sealbox.test,u71:u71pw@sealbox.test,u72:u72pw@sealbox.test,u73:u73pw@sealbox.test,u74:u74pw@sealbox.test,u75:u75pw@sealbox.test,u76:u76pw@sealbox.test,u77:u77pw@sealbox.test,u78:u78pw@sealbox.test,u79:u79pw@sealbox.test,u80:u80pw@sealbox.test,u81:u81pw@sealbox.test,u82:u82pw@sealbox.test
+    ports:
+      - "127.0.0.1:3025:3025"
+      - "127.0.0.1:3465:3465"
+      - "127.0.0.1:3143:3143"
+      - "127.0.0.1:3993:3993"
+      - "127.0.0.1:3080:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/127.0.0.1/3143' || exit 1"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+
+  # Stalwart mail server (hosted "Create a new Sealbox address" mailboxes, gate G22).
+  # Opt-in via the `stalwart` compose profile so `mail_up.sh`'s plain `up -d` never starts it:
+  #   docker compose -p sealbox -f testing/docker-compose.yml --profile stalwart up -d stalwart
+  # Use testing/stalwart_up.sh (bootstraps the server via its JMAP management API) and
+  # testing/stalwart_down.sh. Image: stalwartlabs/stalwart:latest as pulled 2026-10-26 = v1.0.0,
+  # pinned by digest. Ports on 127.0.0.1 only, outside the GreenMail range:
+  #   8084 HTTP (JMAP management API; after bootstrap this is Stalwart's plain-HTTP listener)
+  #   1143 IMAP (plaintext, dev only)   1993 IMAPS   1587 submission (plaintext, dev only)
+  #   1465 SMTPS   1026 SMTP/25 (1025 is already taken on this host by another project's mailpit)
+  # The recovery administrator `admin` (env STALWART_RECOVERY_ADMIN) is a dev-only credential;
+  # Stalwart honours it in normal mode too, which makes the admin credential deterministic.
+  stalwart:
+    image: stalwartlabs/stalwart@sha256:baafeacd6cbde77acdd94af49972d41c6709e54a376df48e18a9fe3f445eb3d5
+    container_name: sealbox-stalwart
+    profiles: ["stalwart"]
+    init: true
+    environment:
+      STALWART_RECOVERY_ADMIN: "admin:sealbox-stalwart-dev-admin"
+      STALWART_HEALTHCHECK_URL: "http://127.0.0.1:8080/healthz/live"
+    ports:
+      - "127.0.0.1:8084:8080"
+      - "127.0.0.1:1143:143"
+      - "127.0.0.1:1993:993"
+      - "127.0.0.1:1587:587"
+      - "127.0.0.1:1465:465"
+      - "127.0.0.1:1026:25"
+    volumes:
+      - stalwart-etc:/etc/stalwart
+      - stalwart-data:/var/lib/stalwart
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/127.0.0.1/8080' || exit 1"]
+      interval: 3s
+      timeout: 2s
+      retries: 40
+
+  # Performance GreenMail (docs/PERFORMANCE.md, scripts/perf_sync.sh): a SEPARATE in-memory server
+  # so seeding 10k+ messages never touches the shared `mail` service the gates and builders use.
+  # Opt-in via the `perf` compose profile, so `mail_up.sh`'s plain `up -d` and the gates never
+  # start it:  testing/mail_perf_up.sh  /  testing/mail_perf_down.sh
+  # Same image as `mail`; users p01..p03 (password <login>pw, address <login>@sealbox.test).
+  # No -Dgreenmail.verbose (a log line per IMAP command would skew the timings). The heap is
+  # bounded (10k seeded messages are ~0.4 GB of raw MIME) so the box keeps its headroom.
+  # Ports on 127.0.0.1 only: IMAP 3243 -> 3143, SMTP 3125 -> 3025.
+  mail-perf:
+    image: greenmail/standalone:2.1.3
+    container_name: sealbox-mail-perf
+    profiles: ["perf"]
+    environment:
+      JAVA_OPTS: "-Djava.net.preferIPv4Stack=true -Xmx4g"
+      GREENMAIL_OPTS: >-
+        -Dgreenmail.setup.test.all
+        -Dgreenmail.hostname=0.0.0.0
+        -Dgreenmail.users=p01:p01pw@sealbox.test,p02:p02pw@sealbox.test,p03:p03pw@sealbox.test
+    ports:
+      - "127.0.0.1:3125:3025"
+      - "127.0.0.1:3243:3143"
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/127.0.0.1/3143' || exit 1"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+
+volumes:
+  stalwart-etc:
+  stalwart-data:

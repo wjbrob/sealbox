@@ -1,0 +1,25 @@
+<!doctype html>
+<!-- FIXTURE, not Gmail. Mimics only the DOM hooks listed in chrome/src/gmail-selectors.js
+     (version 2026-10): the Compose button `div[gh="cm"]`, messages `div[data-legacy-message-id]`
+     and their body `div.a3s`. Message bodies here are what Gmail would render for PGP/MIME
+     (an attachment stub) — the extension must not read them; it fetches raw mail via the API. -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Inbox - fixture</title>
+<style>body{font:14px system-ui;margin:0;display:flex}nav{width:220px;padding:12px}main{flex:1;padding:12px}
+.T-I{display:inline-block;padding:14px 22px;border-radius:16px;background:#c2e7ff;cursor:pointer}
+.adn{border-top:1px solid #ddd;padding:10px 0}.a3s{color:#444}</style></head>
+<body>
+<nav><div class="T-I T-I-KE L3" gh="cm" role="button">Compose</div></nav>
+<main>
+  <h2 class="hP">...</h2>
+  <div class="adn ads" data-message-id="#msg-f:1" data-legacy-message-id="18c0ffee00000001">
+    <div class="gE"><span class="gD" email="gina@sealbox.test">Gina Gpg</span></div>
+    <div class="a3s aiL">(Gmail shows an attachment named encrypted.asc here)</div>
+  </div>
+  <div class="adn ads" data-message-id="#msg-f:2" data-legacy-message-id="18c0ffee00000002">
+    <div class="gE"><span class="gD" email="plain@sealbox.test">Plain Sender</span></div>
+    <div class="a3s aiL">An ordinary unencrypted message.</div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[package]
+name = "sealbox-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+description = "Sealbox engine: accounts, local store, sync + send pipelines, API for the UI"
+
+[dependencies]
+sealbox-crypto = { path = "../sealbox-crypto" }
+sealbox-mail = { path = "../sealbox-mail" }
+sealbox-spam = { path = "../sealbox-spam" }
+anyhow.workspace = true
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+tokio.workspace = true
+rusqlite = { version = "0.41.0", features = ["bundled"] }
+chrono = { version = "0.4", features = ["serde"] }
+base64 = "0.22"
+percent-encoding = "2"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"] }
+async-imap = { version = "0.12", default-features = false, features = ["runtime-tokio"] }
+# Secrets at rest (G27, vault.rs): pure-Rust AEAD + KDFs, no system libraries (mobile-safe).
+chacha20poly1305 = "0.10"
+hkdf = "0.12"
+sha2 = "0.10"
+argon2 = "0.5"
+zeroize = "1.9"
+flate2 = { version = "1", default-features = false, features = ["rust_backend"] } # recovery bundle (G15, recovery.rs)
+# Key-transparency tree heads (G30, identity.rs): Ed25519 verification only.
+ed25519-dalek = "2"
+
+# OS keyring for the profile master key: desktop only (Secret Service via pure-Rust zbus,
+# macOS Keychain, Windows Credential Manager). Android/iOS pass `ProfileKeySource::Raw`.
+[target.'cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))'.dependencies]
+keyring = { version = "3.6", default-features = false, features = ["async-secret-service", "crypto-rust", "tokio", "apple-native", "windows-native"] }
+
+[dev-dependencies]
+tempfile = "3.27.0"

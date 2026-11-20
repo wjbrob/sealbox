@@ -1,0 +1,12 @@
+Received: from mx.sealbox.test
+	by mx2.sealbox.test; Wed, 29 Oct 2025 10:00:00 +0000
+From: "Very, Long \"Quoted\" Name" <long@sealbox.test>
+To: undisclosed-recipients:;
+Reply-To: group: a@sealbox.test, b@sealbox.test;
+Subject: a very long subject line that keeps going and going so that it has to be
+ folded onto a continuation line
+References: <a@x> <b@x>
+ <c@x>
+In-Reply-To: <c@x>
+Autocrypt-Gossip: addr=g@sealbox.test; keydata=AAAA
+Date: not a date

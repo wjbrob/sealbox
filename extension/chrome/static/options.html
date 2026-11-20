@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Sealbox options</title><link rel="stylesheet" href="pages.css"></head>
+<body>
+<h1>Sealbox for Gmail</h1>
+
+<h2>1. Google account (Gmail API)</h2>
+<p class="meta">Sealbox talks to Gmail only through the documented Gmail REST API with your own OAuth client.
+Redirect URI to register: <code id="redirect-uri"></code></p>
+<label for="client-id">OAuth client id</label>
+<input id="client-id" autocomplete="off" placeholder="1234-abc.apps.googleusercontent.com">
+<label for="client-secret">Client secret (only if your client type requires one)</label>
+<input id="client-secret" type="password" autocomplete="off">
+<div class="row">
+  <button id="save-oauth" class="secondary">Save</button>
+  <button id="connect">Connect Google</button>
+  <button id="disconnect" class="secondary">Disconnect</button>
+</div>
+<div id="account" class="status">Not connected.</div>
+
+<h2>2. Your key</h2>
+<div id="key-none">
+  <label for="new-name">Your name</label><input id="new-name" autocomplete="name">
+  <label for="new-email">Email (your Gmail address)</label><input id="new-email" type="email">
+  <label for="import-secret">…or import an armored secret key</label>
+  <textarea id="import-secret" class="mono" placeholder="-----BEGIN PGP PRIVATE KEY BLOCK-----"></textarea>
+  <label for="import-pass">Its current passphrase (if any)</label><input id="import-pass" type="password" autocomplete="off">
+  <label for="new-pass">Sealbox passphrase (protects the key in this browser)</label>
+  <input id="new-pass" type="password" autocomplete="new-password">
+  <div class="row"><button id="generate">Create new key</button><button id="import" class="secondary">Import key</button></div>
+</div>
+<div id="key-have" hidden>
+  <div class="card"><div>Fingerprint <code id="my-fpr"></code></div><div class="meta" id="my-uid"></div>
+  <div class="meta" id="lock-state"></div></div>
+  <label for="unlock-pass">Passphrase</label><input id="unlock-pass" type="password" autocomplete="current-password">
+  <div class="row"><button id="unlock">Unlock</button><button id="lock" class="secondary">Lock</button></div>
+  <label for="my-public">Your public key (share it, or let Autocrypt do it)</label>
+  <textarea id="my-public" class="mono" readonly></textarea>
+</div>
+
+<h2>3. Contacts' keys</h2>
+<p class="meta">Keys arrive automatically through Autocrypt headers on messages you open in Sealbox, or paste one here.</p>
+<label for="contact-key">Armored public key</label>
+<textarea id="contact-key" class="mono" placeholder="-----BEGIN PGP PUBLIC KEY BLOCK-----"></textarea>
+<button id="add-contact" class="secondary">Add key</button>
+<table><thead><tr><th>Address</th><th>Fingerprint</th><th>Source</th></tr></thead><tbody id="contacts"></tbody></table>
+
+<div id="status" class="status" hidden></div>
+<script type="module" src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+From: a@sealbox.test
+To: b@sealbox.test
+Subject: ...
+MIME-Version: 1.0
+Content-Type: multipart/encrypted;
+ protocol="application/pgp-encrypted";
+	boundary="enc  b"
+
+--enc  b 	
+Content-Type: application/pgp-encrypted
+
+Version: 1
+--enc  b
+Content-Type: application/octet-stream
+
+-----BEGIN PGP MESSAGE-----
+
+hQ==
+-----END PGP MESSAGE-----

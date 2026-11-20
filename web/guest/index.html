@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<title>Sealbox secure message</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main class="card">
+  <header>
+    <h1><span class="lock" aria-hidden="true">&#128274;</span> Sealbox secure message</h1>
+    <p class="sub">This message is decrypted in your browser. The server only ever stores ciphertext
+      and never sees the key.</p>
+    <p id="modeinfo" class="modeinfo" hidden></p>
+  </header>
+
+  <section id="status" class="status" role="status" aria-live="polite">Loading&hellip;</section>
+
+  <section id="meta" class="meta" hidden>
+    <dl>
+      <dt>Received</dt><dd id="created"></dd>
+      <dt>Expires</dt><dd id="expires"></dd>
+    </dl>
+  </section>
+
+  <form id="gate-email" class="unlock" hidden autocomplete="off">
+    <label for="gate-address">Your e-mail address</label>
+    <div class="row">
+      <input id="gate-address" name="email" type="email" autocomplete="email" spellcheck="false" required>
+      <button id="send-code" type="submit">Send code</button>
+    </div>
+    <p class="hint">We send a one-time code to this address if the message was sent to it.
+      Anyone who can read that mailbox can also get the code.</p>
+  </form>
+
+  <form id="gate-code" class="unlock" hidden autocomplete="off">
+    <label for="gate-code-input">One-time code</label>
+    <div class="row">
+      <input id="gate-code-input" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="9" spellcheck="false" required>
+      <button id="verify-code" type="submit">Open message</button>
+    </div>
+    <p class="hint">Check your inbox for an e-mail with the subject &ldquo;Your Sealbox code&rdquo;.
+      <button id="new-code" type="button" class="link">Send a new code</button></p>
+  </form>
+
+  <form id="unlock" class="unlock" hidden autocomplete="off">
+    <label for="passphrase">Passphrase</label>
+    <div class="row">
+      <input id="passphrase" name="passphrase" type="password" autocomplete="off" spellcheck="false" required>
+      <button id="decrypt" type="submit">Decrypt</button>
+    </div>
+    <p class="hint">The sender shared the passphrase with you separately (in person, by phone, or in a chat).
+      Nothing you type here leaves your browser.</p>
+  </form>
+
+  <section id="message" class="message" hidden>
+    <h2>Message</h2>
+    <pre id="plaintext" class="plaintext" tabindex="0"></pre>
+    <p id="filename" class="hint" hidden></p>
+    <p class="hint">Shown as plain text only: no formatting, images or links are loaded.</p>
+  </section>
+
+  <section id="replybox" class="reply" hidden>
+    <h2>Encrypted reply</h2>
+    <p class="hint">Your reply is encrypted in your browser to the sender's key
+      (<code id="senderkey"></code>) before it is uploaded. It is not signed.</p>
+    <textarea id="replytext" rows="6" maxlength="20000" placeholder="Write your reply&hellip;"></textarea>
+    <div class="row">
+      <button id="sendreply" type="button">Send encrypted reply</button>
+      <span id="replystatus" class="status inline" role="status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <footer>
+    <p>Sealbox guest viewer &middot; OpenPGP.js (LGPL) &middot; works entirely offline from this page</p>
+  </footer>
+</main>
+<script src="/static/vendor/openpgp.min.js"></script>
+<script type="module" src="/static/viewer.js"></script>
+</body>
+</html>

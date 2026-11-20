@@ -1,0 +1,45 @@
+From: "Sealbox Fuzz Peer" <fuzz-peer@sealbox.test>
+To: "Sealbox Fuzz Identity" <fuzz-identity@sealbox.test>
+Subject: ...
+Date: Wed, 29 Oct 2025 00:00:00 +0000
+Message-ID: <encrypted-v6@sealbox.test>
+MIME-Version: 1.0
+Content-Type: multipart/encrypted; protocol="application/pgp-encrypted";
+ boundary="18e2e3ba173cf7f7_4169415303b8d823_ccda92203a7d31af"
+
+
+--18e2e3ba173cf7f7_4169415303b8d823_ccda92203a7d31af
+Content-Type: application/pgp-encrypted; charset="utf-8"
+Content-Description: PGP/MIME version identification
+Content-Transfer-Encoding: 7bit
+
+Version: 1
+
+--18e2e3ba173cf7f7_4169415303b8d823_ccda92203a7d31af
+Content-Type: application/octet-stream; name="encrypted.asc"
+Content-Description: OpenPGP encrypted message
+Content-Disposition: inline; filename="encrypted.asc"
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP MESSAGE-----
+
+wW0GIQaJn84Y7o0LZ+7GqKTBUdO3KhFw9P9N8Ly6AGZVIEWyIBneD9N7hdByVMgZ
+ri4Wk8NI0LhQQnsCVBMl4+mSlFlJQSgw+bZWRWSU4ksdYOjq/9cXgzpjD5dv+r/j
+NpADZ9uOjZBCZPICifZf0sGiAgkCBqVvdXtNkcTTEn1Ki8WE4yYVm8shJf2511E3
+r/8B5Xo6ynJFIUUHkNVZlj32p2nlqCM58Ns5I3K3WxN9T63YX/q6C/K0lLcorw0d
+oHNgWKdztNOPUVPCwB7NuH6VmaFL0iKCvn4lJIlaLUMLg36McKpzFepWrlLVXrQe
+7u2GLtiIAXTN4gz7pQlYqmgsQrfP5loloKyYHQ0tW7bQeG86tq5bi1ODPcnfMpRG
+3adJ6cXe+K3RXvyszGk+Hdx0URvqIViYzCC6687doAWOgsf5lue8g+SydJnwcXgR
+DponeQgc5DGDX1QezMLF+pdBElrT8GlNw3YhpnztQg6ABaKXqbtnv9D4iagyOxVt
+U+q1yXDNt2sJApip6k7573xonrcKNITlRdH+tV6N3X097UBjvUN1CNe4ZEwPAeGs
+EpnTAu5Xhwcw7KNTXDtaLhoasK/FFpsovVtYtAEIxRqy4BLsplzlNhJRGy0Mo8ha
+glYM7ZKuRMi+Nwwd12ZE4VQI+FUADZumq6VzuzfE15+gIeedmok4yBb7age1N8gj
+Zx5Y7eWfJcW1+8g5OcSljJP/AriqOMSpl3nxV4JJju0ZE0RoJ/+E51zf25Dq3BBe
+3LyMivn5vLnBqfkQlkBenLvm82dn7nMKuCQ54SKuz+MkWQqzQX7w7YV0ITSEgSla
+AvH5llJOFzyuSHBjwXGndMAP93nef5KLMRD79fDGoxAdjPAok6Gq/48mtEHN4/xj
+BrsqZHU03QBk3qxchpnpDzM8gwB07kmP9TH3P1/lqC3Rf2/NDOXHxPVEEli6LXgi
+Q3Jhvg==
+=Qo0/
+-----END PGP MESSAGE-----
+
+--18e2e3ba173cf7f7_4169415303b8d823_ccda92203a7d31af--

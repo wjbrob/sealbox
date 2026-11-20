@@ -1,0 +1,44 @@
+[package]
+name = "sealbox-mail"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[features]
+# `net` (on by default) brings in IMAP, SMTP, autodiscover, OAuth2 and TLS. With
+# `default-features = false` only the pure `mime` module remains, which is what the
+# browser extension compiles to wasm32-unknown-unknown (gate G28).
+default = ["net", "html"]
+net = ["dep:async-imap", "dep:tokio-rustls", "dep:rustls", "dep:webpki-roots", "dep:rustls-pki-types", "dep:lettre", "dep:oauth2", "dep:reqwest", "dep:hickory-resolver", "dep:quick-xml", "dep:futures-util", "dep:url", "dep:tokio"]
+# `html` (on by default): the display sanitizer for received HTML mail and its HTML → text
+# conversion (`html` module, docs/HTML_MAIL.md). Off in the extension's wasm build.
+html = ["dep:ammonia", "dep:html5ever"]
+
+[dependencies]
+anyhow.workspace = true
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+mail-parser = "0.11"
+mail-builder = "2.0"
+async-imap = { version = "0.12", default-features = false, features = ["runtime-tokio"], optional = true }
+tokio-rustls = { version = "0.26", default-features = false, features = ["ring", "tls12", "logging"], optional = true }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12", "logging"], optional = true }
+webpki-roots = { version = "1", optional = true }
+rustls-pki-types = { version = "1", optional = true }
+lettre = { version = "0.11", default-features = false, features = ["smtp-transport", "tokio1", "tokio1-rustls-tls", "hostname"], optional = true }
+oauth2 = { version = "5.0", optional = true }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"], optional = true }
+hickory-resolver = { version = "0.26", optional = true }
+quick-xml = { version = "0.42.0", optional = true }
+base64 = "0.22"
+futures-util = { version = "0.3", optional = true }
+url = { version = "2", optional = true }
+tokio = { workspace = true, features = ["full"], optional = true }
+# Feature `html`: ammonia's allow-list sanitizer, and the html5ever tokenizer it is built on
+# (same version as ammonia's, so one copy in the build) for the post-pass and HTML → text.
+ammonia = { version = "4.2", optional = true }
+html5ever = { version = "0.40", optional = true }

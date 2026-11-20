@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sealbox icon: an envelope sealed with a padlock. Fill-only shapes so every SVG
+     rasteriser (including ImageMagick's built-in one) renders it identically. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <rect x="8" y="8" width="240" height="240" rx="52" fill="#0E7C6B"/>
+  <!-- envelope body -->
+  <rect x="40" y="76" width="176" height="116" rx="14" fill="#F4FBF9"/>
+  <!-- flap: a darker triangle, then the inner lighter one gives the fold line -->
+  <polygon points="40,90 216,90 128,156" fill="#0B5F52"/>
+  <polygon points="52,90 204,90 128,142" fill="#CDE8E2"/>
+  <!-- padlock shackle: a dark ring made of a rounded rect with the inside cut out -->
+  <rect x="96" y="108" width="64" height="60" rx="32" fill="#1F2A2E"/>
+  <rect x="108" y="120" width="40" height="40" rx="20" fill="#F4FBF9"/>
+  <!-- padlock body -->
+  <rect x="84" y="146" width="88" height="66" rx="12" fill="#1F2A2E"/>
+  <rect x="90" y="152" width="76" height="54" rx="9" fill="#F2B134"/>
+  <circle cx="128" cy="174" r="8" fill="#1F2A2E"/>
+  <rect x="124" y="178" width="8" height="16" rx="3" fill="#1F2A2E"/>
+</svg>

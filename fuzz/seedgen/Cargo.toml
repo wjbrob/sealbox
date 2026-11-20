@@ -1,0 +1,20 @@
+# Seed-corpus generator for fuzz/seeds/<target>/ (gate G13). Stable toolchain, no sanitizer:
+#   cargo run --manifest-path fuzz/seedgen/Cargo.toml --release --target-dir target/fuzz-seedgen
+#   … -- --check     # only verify that every committed seed reaches its intended path
+# The fuzz test identities under fuzz/seeds/keys/ are created once and then reused, so the
+# committed seed messages stay decryptable by the harness (fuzz/src/lib.rs loads the same files).
+[package]
+name = "sealbox-fuzz-seedgen"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+sealbox-crypto = { path = "../../crates/sealbox-crypto" }
+# `net` only for `--check`, which replays the autoconfig seeds through parse_autoconfig_xml.
+sealbox-mail = { path = "../../crates/sealbox-mail" }
+pgp = "0.21.0"
+rand = "0.8"
+
+[workspace]
