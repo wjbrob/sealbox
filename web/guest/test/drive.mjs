@@ -62,6 +62,8 @@ const child = spawn(
   [
     '--headless=new',
     '--disable-gpu',
+    // CI runners have a small /dev/shm; Chromium otherwise stalls or crashes on start-up there.
+    '--disable-dev-shm-usage',
     '--no-sandbox',
     '--no-first-run',
     '--no-default-browser-check',
@@ -112,7 +114,13 @@ async function waitFor(pred, timeoutMs, what) {
 
 async function connect() {
   const portFile = path.join(profile, 'DevToolsActivePort');
-  await waitFor(async () => fs.existsSync(portFile) && fs.readFileSync(portFile, 'utf8').includes('\n'), 20000, 'DevToolsActivePort');
+  // A cold Chromium on a busy CI runner (cargo test compiling alongside) can take well over 20 s.
+  // Fail at once, with its stderr, if it exits instead of starting.
+  const startMs = Number(process.env.SEALBOX_BROWSER_START_MS || 60000);
+  await waitFor(async () => {
+    if (child.exitCode !== null) throw new Error(`browser exited (${child.exitCode}) before DevTools came up`);
+    return fs.existsSync(portFile) && fs.readFileSync(portFile, 'utf8').includes('\n');
+  }, startMs, 'DevToolsActivePort');
   const [port, wsPath] = fs.readFileSync(portFile, 'utf8').trim().split('\n');
   ws = new WebSocket(`ws://127.0.0.1:${port}${wsPath}`);
   await new Promise((resolve, reject) => {

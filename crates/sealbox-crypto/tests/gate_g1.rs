@@ -651,5 +651,11 @@ fn g1_capabilities_report() {
         capabilities::PQC,
         capabilities::GNUPG_AEAD_READ
     );
-    assert_eq!(capabilities::RPGP_VERSION, "0.21.0");
+    // A tripwire for the API line the capability flags above were checked against: patch releases
+    // (security fixes) pass, a move to 0.22 must re-check them first.
+    assert!(
+        capabilities::RPGP_VERSION.starts_with("0.21."),
+        "rPGP {} is outside the reviewed 0.21 line",
+        capabilities::RPGP_VERSION
+    );
 }
