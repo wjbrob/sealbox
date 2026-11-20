@@ -26,7 +26,7 @@ async-imap = { version = "0.12", default-features = false, features = ["runtime-
 # Secrets at rest (G27, vault.rs): pure-Rust AEAD + KDFs, no system libraries (mobile-safe).
 chacha20poly1305 = "0.10"
 hkdf = "0.12"
-sha2 = "0.10"
+sha2 = "0.11"
 argon2 = "0.5"
 zeroize = "1.9"
 flate2 = { version = "1", default-features = false, features = ["rust_backend"] } # recovery bundle (G15, recovery.rs)
