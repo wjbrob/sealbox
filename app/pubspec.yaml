@@ -37,8 +37,8 @@ dependencies:
   rust_lib_sealbox_app:
     path: rust_builder
   flutter_rust_bridge: 2.13.0
-  flutter_riverpod: ^3.4.3
-  go_router: ^18.1.1
+  flutter_riverpod: ^3.5.0
+  go_router: ^18.1.4
   # Profile directory on desktop/mobile (XDG data dir on Linux); SEALBOX_PROFILE overrides it.
   path_provider: ^2.1.5
   url_launcher: ^6.3.3
@@ -48,7 +48,7 @@ dependencies:
   local_auth: ^3.0.2
   crypto: ^3.0.6
   qr_flutter: ^4.1.0
-  mobile_scanner: ^7.4.2
+  mobile_scanner: ^7.5.0
   flutter_widget_from_html_core: ^0.17.4
 
 dev_dependencies:
