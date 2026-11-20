@@ -12,7 +12,7 @@ description = "Loopback IMAP/SMTP/OAuth2 simulators that imitate one named mail 
 tokio = { workspace = true }
 sealbox-core = { path = "../sealbox-core" }
 sealbox-mail = { path = "../sealbox-mail" }
-base64 = "0.22"
+base64 = "0.23"
 
 [dev-dependencies]
 sealbox-crypto = { path = "../sealbox-crypto" }
