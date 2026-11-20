@@ -190,8 +190,7 @@ Refreshed by `scripts/gate_g21.sh` from `.gate/evidence/G21/*.json` (addresses m
 <!-- G21-RESULTS-START -->
 | date | provider | account | auth | result | pass/fail/skip | evidence |
 |---|---|---|---|---|---|---|
-| 2026-11-17 | outlook | b***@outlook.com | o_auth | FAIL | 11/3/5 | `.gate/evidence/G21/outlook-2026-11-17.json` |
-| 2026-11-17 | gmail | b***@gmail.com | o_auth | PASS | 18/0/1 | `.gate/evidence/G21/gmail-2026-11-17.json` |
+| – | – | – | – | no runs yet | – | – |
 <!-- G21-RESULTS-END -->
 
 Local evidence (GreenMail, every run of `gate_g21_local`): `greenmail-<date>.json` (password
