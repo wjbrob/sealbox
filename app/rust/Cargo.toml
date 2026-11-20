@@ -31,7 +31,7 @@ tempfile = "3"
 # because frb's own rustContentHash does not move when a DTO field is edited.
 syn = { version = "2", features = ["full", "parsing", "printing"] }
 quote = "1"
-sha2 = "0.10"
+sha2 = "0.11"
 # The #[ignore] GreenMail test of the bridge's async methods (already in the tree via sealbox-core).
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 
